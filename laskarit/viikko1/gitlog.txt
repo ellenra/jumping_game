@@ -1,0 +1,16 @@
+   poisto ja nimen vaihto
+file 2           | 0
+file 1 => file22 | 0
+2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit d5dbf4d0545702498a111ab839e88dadfc4044f5
+Author: Ellen <ellen.rajala@gmail.com> 
+Date: Mon Mar 21 23:54:57 2022 +0200
+
+   uus kansio
+
+file1 | 0
+file2 | 0
+file3 | 0
+3 files changed, 0 insertions(+), 0 deletions(-)
+
