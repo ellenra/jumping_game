@@ -6,3 +6,5 @@
 [komentorivi.txt](https://github.com/ellenra/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
 [vaatimusmaarittely.md](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
+[tuntikirjanpito.md](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
