@@ -5,10 +5,4 @@
 
 [komentorivi.txt](https://github.com/ellenra/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
-
-
-#### Harjoitus
-
-~~Nyt meni kyllä väärin~~
-**Muista, että virheitä _ei saa_ tehdä**
-> Mutta välillä käy niin
+[vaatimusmaarittely.md](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
