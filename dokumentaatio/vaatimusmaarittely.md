@@ -1,7 +1,7 @@
 # Vaatimusmäärittely
  
 ### Sovelluksen tarkoitus
-Sovellus on yksinkertainen The impossible game. Peliin rekisteröidytään käyttäjätunnuksella ja salasanalla, sitten pelin yhtä tasoa voi pelata ja lopuksi 
+Sovellus on yksinkertainen tasohyppelypeli. Peliin rekisteröidytään käyttäjätunnuksella ja salasanalla, sitten pelin yhtä tasoa voi pelata ja lopuksi 
 näkyy käyttäjän viisi parasta pelitulosta.
 
 ### Perusversion toiminnallisuus
