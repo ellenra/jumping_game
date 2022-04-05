@@ -10,8 +10,8 @@ sequenceDiagram
   main-)Lippuluukku: Kioski()
   Kalle-)Lippuluukku: osta_matkakortti(Kalle)
   Lippuluukku-)Kalle: Matkakortti(Kalle)
-  main-)Lataajalaite: lataa_arvoa(kallen_kortti, 3)
-  Lataajalaite-)Kalle: 3
+  main-)Rautatietori: lataa_arvoa(kallen_kortti, 3)
+  Rautatietori-)Kalle: 3
   Kalle-)Ratikka6: osta_lippu(kallen_kortti, 0)
   Ratikka6-)Kalle: 3
   Kalle-)Bussi244: osta_lippu(kallen_kortti, 2)
