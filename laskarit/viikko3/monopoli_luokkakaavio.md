@@ -7,7 +7,7 @@
       Pelaaja : 2-8 pelaajaa
       Pelaaja -- Pelinappula
       Pelinappula -- Ruutu
-      Pelinappula -- Heitä()
+      Pelinappula -- Heita()
       Ruutu -- Aloitusruutu
       Ruutu -- Vankila
       Ruutu -- Sattuma ja yhteismaa
