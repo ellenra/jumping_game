@@ -8,6 +8,7 @@ sequenceDiagram
   main-)Bussi244: Lukijalaite()
   main-)Laitehallinto: lisaa_lukija(bussi244)
   main-)Lippuluukku: Kioski()
+
   Kalle-)Lippuluukku: osta_matkakortti(Kalle)
   Lippuluukku-)Kalle: Matkakortti(Kalle)
   main-)Rautatietori: lataa_arvoa(kallen_kortti, 3)
