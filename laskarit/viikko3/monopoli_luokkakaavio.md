@@ -14,7 +14,7 @@
       Ruutu -- Normaalit kadut
       Pelilauta --> Ruutu
       Pelaaja --> Normaalit kadut
-      Normaalit kadut -- 4 taloa / hotelli
+      Normaalit kadut -- 4 taloa tai hotelli
       Normaalit kadut -- Toiminto
       Peli --> Aloitusruutu
       Peli --> Vankila
