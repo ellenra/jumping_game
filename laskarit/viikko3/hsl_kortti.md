@@ -7,5 +7,7 @@ sequenceDiagram
   main-)Laitehallinto: lisaa_lukija(ratikka6)
   main-)Bussi244: Lukijalaite()
   main-)Laitehallinto: lisaa_lukija(bussi244)
+  main-)Lippuluukku: Kioski()
+  Kalle-)Lippuluukku: osta_matkakortti(Kalle)
   
 ```
