@@ -1,3 +1,4 @@
+```mermaid
 sequenceDiagram
   main-)Laitehallinto: HKLLaitehallinto
   main-)Rautatietori: Lataajalaite()
@@ -6,3 +7,5 @@ sequenceDiagram
   main-)Laitehallinto: lisaa_lukija(ratikka6)
   main-)Bussi244: Lukijalaite()
   main-)Laitehallinto: lisaa_lukija(bussi244)
+  
+```
