@@ -7,13 +7,13 @@
       Pelaaja : 2-8 pelaajaa
       Pelaaja -- Pelinappula
       Pelinappula -- Ruutu
-      Ruutu -- Pelilauta
       Ruutu : Aloitusruutu
       Ruutu : Vankila
       Ruutu : Sattuma ja yhteismaa
       Ruutu : Asemat ja laitokset
       Ruutu : Normaalit kadut
       Pelilauta --> Ruutu
+      Pelaaja --> Normaalit kadut
       
      
 ```
