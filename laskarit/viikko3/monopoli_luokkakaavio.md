@@ -1,7 +1,6 @@
 ```mermaid
  classDiagram
       Pelilauta "*" --> "1" Peli
-      Pelilauta : 40 ruutua
       Pelaaja --> Peli
       Pelaaja : Kaksi noppaa
       Pelaaja : 2-8 pelaajaa
@@ -25,7 +24,7 @@
       Vankila : Toiminto()
       Asemat ja laitokset : Toiminto()
       Pelaaja -- Raha
-      Pelilauta : 40 ruutua
+      Ruutu : 40 ruutua
       
       
      
