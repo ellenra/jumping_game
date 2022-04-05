@@ -1,3 +1,5 @@
+(en saa pygamea toimimaan tällä koneella ja poetryä toisella joten testien teko ei onnistunut vielä)
+
 import unittest
 from gamestructure import Player
 
