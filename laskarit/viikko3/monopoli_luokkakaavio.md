@@ -15,14 +15,14 @@
       Pelilauta --> Ruutu
       Pelaaja --> Normaalit kadut
       Normaalit kadut -- 4 taloa tai hotelli
-      Normaalit kadut -- Toiminto
+      Normaalit kadut : Toiminto()
       Peli --> Aloitusruutu
       Peli --> Vankila
-      Sattuma ja yhteismaa -- Nosta kortti
-      Sattuma ja yhteismaa -- Toiminto
-      Aloitusruutu -- Toiminto
-      Vankila -- Toiminto
-      Asemat ja laitokset -- Toiminto
+      Sattuma ja yhteismaa : Nosta kortti()
+      Sattuma ja yhteismaa : Toiminto()
+      Aloitusruutu : Toiminto()
+      Vankila : Toiminto()
+      Asemat ja laitokset : Toiminto()
       Pelaaja -- Raha
       
       
