@@ -13,7 +13,7 @@
       Ruutu : Sattuma ja yhteismaa
       Ruutu : Asemat ja laitokset
       Ruutu : Normaalit kadut
-      Pelilauta -> Ruutu
+      Pelilauta --> Ruutu
       
      
 ```
