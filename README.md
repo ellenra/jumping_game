@@ -18,7 +18,7 @@ Ohjelman voi suorittaa komennolla:
 > poetry run invoke start
 
 Testit suoritetaan komennolla:
-> poetru run invoke test
+> poetry run invoke test
 
 Testikattavuusraportti:
 > poetry run invoke coverage-report
