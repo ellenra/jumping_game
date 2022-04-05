@@ -17,6 +17,7 @@
       Normaalit kadut : 4 taloa / hotelli
       Peli --> Aloitusruutu
       Peli --> Vankila
+      Sattuma ja yhteismaa : Nosta kortti
       
      
 ```
