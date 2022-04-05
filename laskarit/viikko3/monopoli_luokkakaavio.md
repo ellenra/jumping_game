@@ -15,6 +15,8 @@
       Pelilauta --> Ruutu
       Pelaaja --> Normaalit kadut
       Normaalit kadut : 4 taloa / hotelli
+      Peli --> Aloitusruutu
+      Peli --> Vankila
       
      
 ```
