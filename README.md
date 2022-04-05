@@ -1,10 +1,12 @@
 # Ohjelmistotekniikka, harjoitustyö
-## Tehtävät
-### Viikko 1
-[gitlog.txt](https://github.com/ellenra/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
-[komentorivi.txt](https://github.com/ellenra/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+### Dokumentaatio
+[Gitlog](https://github.com/ellenra/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
-[vaatimusmaarittely.md](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+[Komentorivi](https://github.com/ellenra/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
-[tuntikirjanpito.md](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+[Vaatimusmaarittely](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
+[Tuntikirjanpito](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+
+[Changelog](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
