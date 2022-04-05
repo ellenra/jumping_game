@@ -9,5 +9,6 @@ sequenceDiagram
   main-)Laitehallinto: lisaa_lukija(bussi244)
   main-)Lippuluukku: Kioski()
   Kalle-)Lippuluukku: osta_matkakortti(Kalle)
+  main-)Rautatietori: lataa_arvoa(kallen_kortti, 3)
   
 ```
