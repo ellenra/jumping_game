@@ -23,6 +23,7 @@
       Aloitusruutu -- Toiminto
       Vankila -- Toiminto
       Asemat ja laitokset -- Toiminto
+      Pelaaja -- Raha
       
       
      
