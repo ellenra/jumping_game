@@ -7,6 +7,7 @@
       Pelaaja : 2-8 pelaajaa
       Pelaaja -- Pelinappula
       Pelinappula -- Ruutu
+      Pelinappula -- Heitä()
       Ruutu -- Aloitusruutu
       Ruutu -- Vankila
       Ruutu -- Sattuma ja yhteismaa
@@ -24,6 +25,7 @@
       Vankila : Toiminto()
       Asemat ja laitokset : Toiminto()
       Pelaaja -- Raha
+      Pelilauta : 40 ruutua
       
       
      
