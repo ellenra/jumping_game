@@ -14,11 +14,11 @@ SCREEN_WIDTH = 500
 vector = pygame.math.Vector2
 
 
-pink = (255, 153, 204)
-yellow = (255, 255, 51)
-lightblue = (176, 224, 230)
-darkerblue = (123, 213, 213)
-darkestblue = (86, 186, 206)
+PINK = (255, 153, 204)
+YELLOW = (255, 255, 51)
+LIGHTBLUE = (176, 224, 230)
+DARKERBLUE = (123, 213, 213)
+DARKESTBLUE = (86, 186, 206)
 
 
 
@@ -29,7 +29,7 @@ FRIC = -0.12
 
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-screen.fill(lightblue)
+screen.fill(LIGHTBLUE)
 
 
 pygame.display.set_caption("Jump Until You Die")
@@ -40,12 +40,12 @@ class Player(pygame.sprite.Sprite):
         super().__init__()
         self.jumping = False
         self.surf = pygame.Surface((30, 30))
-        self.surf.fill(pink)
+        self.surf.fill(PINK)
         self.rect = self.surf.get_rect()
 
         self.position = vector((250, 530))
-        self.velocity = vector(0,0)
-        self.acceleration = vector(0,0)
+        self.velocity = vector(0, 0)
+        self.acceleration = vector(0, 0)
 
     def move(self):
         self.acceleration = vector(0, 0.4)
@@ -97,10 +97,9 @@ class Coins(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.surf = pygame.Surface((7.5, 7.5))
-        self.surf.fill(yellow)
+        self.surf.fill(YELLOW)
         self.rect = self.surf.get_rect(center = (random.randint(0, SCREEN_WIDTH - 50),
-
-                                                 random.randint(0, SCREEN_HEIGHT - 50)))
+                                                random.randint(0, SCREEN_HEIGHT - 50)))
         self.speed = 0
         self.moving = True
 
@@ -115,17 +114,16 @@ class Coins(pygame.sprite.Sprite):
                 change_color(coi)
 
 def change_color(coi):
-    coi.surf.fill(lightblue)
+    coi.surf.fill(LIGHTBLUE)
 
 
 class Platform(pygame.sprite.Sprite):
     def __init__(self):
         super(Platform, self).__init__()
         self.surf = pygame.Surface((random.randint(50, 175), 13))
-        self.surf.fill(darkestblue)
+        self.surf.fill(DARKESTBLUE)
         self.rect = self.surf.get_rect(center = (random.randint(0, SCREEN_WIDTH - 50),
-
-                                                 random.randint(0, SCREEN_HEIGHT - 50)))
+                                                random.randint(0, SCREEN_HEIGHT - 50)))
         self.speed = random.randint(-2, 2)
         self.moving = True
 
@@ -165,26 +163,26 @@ def coin_collision(coin, groupies):
 def newplatforms():
     while len(platforms) < 6:
         width = random.randrange(50, 175)
-        p  = Platform()
+        p = Platform()
         C = True
 
         while C:
             p = Platform()
             p.rect.center = (random.randrange(0, SCREEN_WIDTH - width),
-                            random.randrange(-50, 0))
+                             random.randrange(-50, 0))
             C = platform_collision(p, platforms)
         platforms.add(p)
         all_sprites.add(p)
 
 def newcoins():
     while len(coins) < 3:
-        p  = Platform()
+        p = Platform()
         C = True
 
         while C:
             p = Coins()
             p.rect.center = (random.randrange(0, SCREEN_WIDTH - 10),
-                            random.randrange(-50, 0))
+                             random.randrange(-50, 0))
             C = coin_collision(p, platforms)
         coins.add(p)
         all_sprites.add(p)
@@ -195,8 +193,8 @@ player = Player()
 coin = Coins()
 
 platform.surf = pygame.Surface((SCREEN_WIDTH, 30))
-platform.surf.fill(darkerblue)
-platform.rect = platform.surf.get_rect(center = (SCREEN_WIDTH / 2, SCREEN_HEIGHT - 10))
+platform.surf.fill(DARKERBLUE)
+platform.rect = platform.surf.get_rect(center=(SCREEN_WIDTH/2, SCREEN_HEIGHT-10))
 platform.moving = False
 
 
@@ -260,9 +258,9 @@ while True:
         for i in all_sprites:
             i.kill()
             time.sleep(0.5)
-            screen.fill(lightblue)
+            screen.fill(LIGHTBLUE)
             font = pygame.font.SysFont("Adobe Myungjo Std Orta", 32)
-            text = font.render("Better luck next time!", True, (pink))
+            text = font.render("Better luck next time!", True, (PINK))
             screen.blit(text, (SCREEN_WIDTH / 3.6, SCREEN_HEIGHT / 2))
             pygame.display.update()
             time.sleep(1.75)
@@ -271,7 +269,7 @@ while True:
 
     newplatforms()
     newcoins()
-    screen.fill(lightblue)
+    screen.fill(LIGHTBLUE)
 
     for entity in all_sprites:
         screen.blit(entity.surf, entity.rect)
@@ -279,8 +277,6 @@ while True:
 
     pygame.display.update()
     clock.tick(60)
-
-
 
 
 
