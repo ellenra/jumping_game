@@ -6,3 +6,4 @@
 | 31.3. | 5 | Pelin päärakenteen koodausta/sen opettelua
 | 4.4 | 8 | Pelin päärakenteen koodausta/sen opettelua
 | 5.4. | 6 | Pelin koodausta, pygamen kanssa ongelmia
+| yht | 19,5 |
