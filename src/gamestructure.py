@@ -11,7 +11,7 @@ SCREEN_HEIGHT = 550
 SCREEN_WIDTH = 500
 
 
-vector = pygame.math.Vector2
+VECTOR = pygame.math.Vector2
 
 
 PINK = (255, 153, 204)
@@ -27,9 +27,9 @@ FRIC = -0.12
 
 
 
-clock = pygame.time.Clock()
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-screen.fill(LIGHTBLUE)
+CLOCK = pygame.time.Clock()
+SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+SCREEN.fill(LIGHTBLUE)
 
 
 pygame.display.set_caption("Jump Until You Die")
@@ -43,12 +43,12 @@ class Player(pygame.sprite.Sprite):
         self.surf.fill(PINK)
         self.rect = self.surf.get_rect()
 
-        self.position = vector((250, 530))
-        self.velocity = vector(0, 0)
-        self.acceleration = vector(0, 0)
+        self.position = VECTOR((250, 530))
+        self.velocity = VECTOR(0, 0)
+        self.acceleration = VECTOR(0, 0)
 
     def move(self):
-        self.acceleration = vector(0, 0.4)
+        self.acceleration = VECTOR(0, 0.4)
         pressed_keys = pygame.key.get_pressed()
 
         if pressed_keys[pygame.K_LEFT]:
@@ -69,7 +69,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.midbottom = self.position
 
     def jump(self):
-        collisions = pygame.sprite.spritecollide(self, platforms, False)
+        collisions = pygame.sprite.spritecollide(self, PLATFORMS, False)
 
         if collisions and not self.jumping:
             self.jumping = True
@@ -84,7 +84,7 @@ class Player(pygame.sprite.Sprite):
 
 
     def update(self):
-        collisions = pygame.sprite.spritecollide(self, platforms, False)
+        collisions = pygame.sprite.spritecollide(self, PLATFORMS, False)
         if self.velocity.y > 0:
             if collisions:
                 if self.position.y < collisions[0].rect.bottom:
@@ -98,8 +98,8 @@ class Coins(pygame.sprite.Sprite):
         super().__init__()
         self.surf = pygame.Surface((7.5, 7.5))
         self.surf.fill(YELLOW)
-        self.rect = self.surf.get_rect(center = (random.randint(0, SCREEN_WIDTH - 50),
-                                                random.randint(0, SCREEN_HEIGHT - 50)))
+        self.rect = self.surf.get_rect(center=(random.randint(0, SCREEN_WIDTH - 50),
+                                               random.randint(0, SCREEN_HEIGHT - 50)))
         self.speed = 0
         self.moving = True
 
@@ -108,8 +108,8 @@ class Coins(pygame.sprite.Sprite):
             self.rect.move_ip(self.speed, 0)
 
     def update(self):
-        coincollision = pygame.sprite.spritecollide(self, coins, False)
-        for coi in coins:
+        coincollision = pygame.sprite.spritecollide(self, COINS, False)
+        for coi in COINS:
             if coincollision:
                 change_color(coi)
 
@@ -122,8 +122,8 @@ class Platform(pygame.sprite.Sprite):
         super(Platform, self).__init__()
         self.surf = pygame.Surface((random.randint(50, 175), 13))
         self.surf.fill(DARKESTBLUE)
-        self.rect = self.surf.get_rect(center = (random.randint(0, SCREEN_WIDTH - 50),
-                                                random.randint(0, SCREEN_HEIGHT - 50)))
+        self.rect = self.surf.get_rect(center=(random.randint(0, SCREEN_WIDTH - 50),
+                                               random.randint(0, SCREEN_HEIGHT - 50)))
         self.speed = random.randint(-2, 2)
         self.moving = True
 
@@ -140,95 +140,93 @@ class Platform(pygame.sprite.Sprite):
 def platform_collision(platform, groupies):
     if pygame.sprite.spritecollideany(platform, groupies):
         return True
-    else:
-        for thing in groupies:
-            if thing == platform:
-                continue
-            if (abs(platform.rect.top - thing.rect.bottom) < 50) and \
-                (abs(platform.rect.bottom - thing.rect.top) < 50):
-                return True
-        C = False
+
+    for thing in groupies:
+        if thing == platform:
+            continue
+        if (abs(platform.rect.top - thing.rect.bottom) < 50) and \
+            (abs(platform.rect.bottom - thing.rect.top) < 50):
+            return True
 
 def coin_collision(coin, groupies):
     if pygame.sprite.spritecollideany(coin, groupies):
         return True
-    else:
-        for i in groupies:
-            if i == platform:
-                continue
-            if (abs(platform.rect.top - i.rect.bottom) < 50) and \
-                (abs(platform.rect.bottom - i.rect.top) < 50):
-                return True
+    for i in groupies:
+        if i == PLATFORM:
+            continue
+        if (abs(PLATFORM.rect.top - i.rect.bottom) < 50) and \
+            (abs(PLATFORM.rect.bottom - i.rect.top) < 50):
+            return True
 
 def newplatforms():
-    while len(platforms) < 6:
+    while len(PLATFORMS) < 6:
         width = random.randrange(50, 175)
-        p = Platform()
-        C = True
+        plat = Platform()
+        is_true = True
 
-        while C:
-            p = Platform()
-            p.rect.center = (random.randrange(0, SCREEN_WIDTH - width),
-                             random.randrange(-50, 0))
-            C = platform_collision(p, platforms)
-        platforms.add(p)
-        all_sprites.add(p)
+        while is_true:
+            plat = Platform()
+            plat.rect.center = (random.randrange(0, SCREEN_WIDTH - width),
+                                random.randrange(-50, 0))
+            is_true = platform_collision(plat, PLATFORMS)
+        PLATFORMS.add(plat)
+        ALL_SPRITES.add(plat)
 
 def newcoins():
-    while len(coins) < 3:
-        p = Platform()
-        C = True
+    while len(COINS) < 3:
+        coin = Coins()
+        is_true = True
 
-        while C:
-            p = Coins()
-            p.rect.center = (random.randrange(0, SCREEN_WIDTH - 10),
-                             random.randrange(-50, 0))
-            C = coin_collision(p, platforms)
-        coins.add(p)
-        all_sprites.add(p)
-
-
-platform = Platform()
-player = Player()
-coin = Coins()
-
-platform.surf = pygame.Surface((SCREEN_WIDTH, 30))
-platform.surf.fill(DARKERBLUE)
-platform.rect = platform.surf.get_rect(center=(SCREEN_WIDTH/2, SCREEN_HEIGHT-10))
-platform.moving = False
+        while is_true:
+            coin = Coins()
+            coin.rect.center = (random.randrange(0, SCREEN_WIDTH - 10),
+                                random.randrange(-50, 0))
+            is_true = coin_collision(coin, COINS)
+        COINS.add(coin)
+        ALL_SPRITES.add(coin)
 
 
+PLATFORM = Platform()
+PLAYER = Player()
+COIN = Coins()
 
-all_sprites = pygame.sprite.Group()
-platforms = pygame.sprite.Group()
-coins = pygame.sprite.Group()
+PLATFORM.surf = pygame.Surface((SCREEN_WIDTH, 30))
+PLATFORM.surf.fill(DARKERBLUE)
+PLATFORM.rect = PLATFORM.surf.get_rect(center=(SCREEN_WIDTH/2, SCREEN_HEIGHT-10))
+PLATFORM.moving = False
 
-all_sprites.add(platform,
-                player,
-                coin)
-platforms.add(platform)
-coins.add(coin)
+
+
+ALL_SPRITES = pygame.sprite.Group()
+PLATFORMS = pygame.sprite.Group()
+COINS = pygame.sprite.Group()
+
+ALL_SPRITES.add(PLATFORM,
+                PLAYER,
+                COIN)
+PLATFORMS.add(PLATFORM)
+COINS.add(COIN)
 
 
 for i in range(random.randint(4, 5)):
-    C = True
+    is_true = True
     new_platform = Platform()
     new_coins = Coins()
 
-    while C:
+    while is_true:
         new_platform = Platform()
         new_coins = Coins()
-        C = platform_collision(new_platform, platforms)
+        is_true = platform_collision(new_platform, PLATFORMS)
 
-    platforms.add(new_platform)
-    all_sprites.add(new_platform)
-    all_sprites.add(new_coins)
-    coins.add(new_coins)
+    PLATFORMS.add(new_platform)
+    ALL_SPRITES.add(new_platform)
+    ALL_SPRITES.add(new_coins)
+    COINS.add(new_coins)
 
 
 while True:
-    player.update()
-    coin.update()
+    PLAYER.update()
+    COIN.update()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -241,27 +239,27 @@ while True:
                 sys.exit()
 
             if event.key == pygame.K_UP:
-                player.jump()
+                PLAYER.jump()
 
 
 
-    if player.rect.top <= SCREEN_HEIGHT / 2.5:
-        player.position.y += abs(player.velocity.y)
-        for i in platforms:
-            i.rect.y += abs(player.velocity.y)
+    if PLAYER.rect.top <= SCREEN_HEIGHT / 2.5:
+        PLAYER.position.y += abs(PLAYER.velocity.y)
+        for i in PLATFORMS:
+            i.rect.y += abs(PLAYER.velocity.y)
             if i.rect.top >= SCREEN_HEIGHT:
                 i.kill()
 
 
 
-    if player.rect.top > SCREEN_HEIGHT:
-        for i in all_sprites:
+    if PLAYER.rect.top > SCREEN_HEIGHT:
+        for i in ALL_SPRITES:
             i.kill()
             time.sleep(0.5)
-            screen.fill(LIGHTBLUE)
+            SCREEN.fill(LIGHTBLUE)
             font = pygame.font.SysFont("Adobe Myungjo Std Orta", 32)
             text = font.render("Better luck next time!", True, (PINK))
-            screen.blit(text, (SCREEN_WIDTH / 3.6, SCREEN_HEIGHT / 2))
+            SCREEN.blit(text, (SCREEN_WIDTH / 3.6, SCREEN_HEIGHT / 2))
             pygame.display.update()
             time.sleep(1.75)
             pygame.quit()
@@ -269,15 +267,11 @@ while True:
 
     newplatforms()
     newcoins()
-    screen.fill(LIGHTBLUE)
+    SCREEN.fill(LIGHTBLUE)
 
-    for entity in all_sprites:
-        screen.blit(entity.surf, entity.rect)
+    for entity in ALL_SPRITES:
+        SCREEN.blit(entity.surf, entity.rect)
         entity.move()
 
     pygame.display.update()
-    clock.tick(60)
-
-
-
-
+    CLOCK.tick(60)
