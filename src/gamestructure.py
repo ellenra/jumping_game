@@ -3,7 +3,6 @@ import pygame, random, sys, time
 pygame.init()
 
  
-
 screen_height = 550
 screen_width = 500
 
@@ -34,7 +33,7 @@ pygame.display.set_caption("Jump Until You Die")
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, x = 0, y = 0):
-        super(Player, self).__init__() 
+        super(Player, self).__init__()
         self.jumping = False
         self.surf = pygame.Surface((30, 30))
         self.surf.fill(pink)
@@ -62,18 +61,17 @@ class Player(pygame.sprite.Sprite):
             self.position.x = 0
         if self.position.x < 0:
 
-            self.position.x = screen_width            
+            self.position.x = screen_width 
 
         self.rect.midbottom = self.position
 
-    def jump(self): 
+    def jump(self):
         collisions = pygame.sprite.spritecollide(self, platforms, False)
 
         if collisions and not self.jumping:
            self.jumping = True
            self.velocity.y = -15
 
- 
 
     def no_jump(self):
         if self.jumping:
@@ -84,7 +82,7 @@ class Player(pygame.sprite.Sprite):
 
     def update(self):
         collisions = pygame.sprite.spritecollide(self, platforms, False)
-        if self.velocity.y > 0:        
+        if self.velocity.y > 0:
             if collisions:
                 if self.position.y < collisions[0].rect.bottom:
                     self.position.y = collisions[0].rect.top +1
@@ -99,15 +97,13 @@ class Coins(pygame.sprite.Sprite):
         self.surf.fill(yellow)
         self.rect = self.surf.get_rect(center = (random.randint(0, screen_width - 50),
 
-                                                 random.randint(0, screen_height - 50))) 
+                                                 random.randint(0, screen_height - 50)))
         self.speed = 0
         self.moving = True
 
     def move(self):
         if self.moving == True:
             self.rect.move_ip(self.speed, 0)
-
-            
 
     def update(self):
         coincollision = pygame.sprite.spritecollide(self, coins, False)
@@ -132,7 +128,7 @@ class Platform(pygame.sprite.Sprite):
         self.moving = True
 
     def move(self):
-        if self.moving == True:  
+        if self.moving == True:
             self.rect.move_ip(self.speed, 0)
 
             if self.speed > 0 and self.rect.left > screen_width:
@@ -162,12 +158,11 @@ def coin_collision(coin, groupies):
             if (abs(platform.rect.top - i.rect.bottom) < 50) and (abs(platform.rect.bottom - i.rect.top) < 50):
                 return True
         C = False
- 
 
 def newplatforms():
     while len(platforms) < 6:
         width = random.randrange(50, 175)
-        p  = Platform()      
+        p  = Platform()
         C = True
 
         while C:
@@ -180,13 +175,12 @@ def newplatforms():
 
 def newcoins():
     while len(coins) < 3:
-        p  = Platform()      
+        p  = Platform()
         C = True
 
         while C:
              p = Coins()
              p.rect.center = (random.randrange(0, screen_width - 10),
-
                               random.randrange(-50, 0))
              C = coin_collision(p, platforms)
         coins.add(p)
@@ -200,7 +194,7 @@ coin = Coins()
 platform.surf = pygame.Surface((screen_width, 30))
 platform.surf.fill(darkerblue)
 platform.rect = platform.surf.get_rect(center = (screen_width / 2, screen_height - 10))
-platform.moving = False 
+platform.moving = False
 
 
 
@@ -208,18 +202,13 @@ all_sprites = pygame.sprite.Group()
 platforms = pygame.sprite.Group()
 coins = pygame.sprite.Group()
 
-
-
-all_sprites.add(platform, 
-
+all_sprites.add(platform,
                 player,
-
                 coin)
 platforms.add(platform)
 coins.add(coin)
 
  
-
 for i in range(random.randint(4, 5)):
     C = True
     new_platform = Platform()
@@ -235,7 +224,6 @@ for i in range(random.randint(4, 5)):
     all_sprites.add(new_coins)
     coins.add(new_coins)
 
- 
 
 while True:
     player.update()
@@ -246,7 +234,7 @@ while True:
             pygame.quit()
             sys.exit()
 
-        if event.type == pygame.KEYDOWN:    
+        if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
                 sys.exit()
