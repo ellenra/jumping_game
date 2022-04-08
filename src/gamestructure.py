@@ -1,10 +1,14 @@
-import pygame, random, sys, time
+import random
+import time
+import sys
+import pygame
+
 
 pygame.init()
 
- 
-screen_height = 550
-screen_width = 500
+
+SCREEN_HEIGHT = 550
+SCREEN_WIDTH = 500
 
 
 vector = pygame.math.Vector2
@@ -24,7 +28,7 @@ FRIC = -0.12
 
 
 clock = pygame.time.Clock()
-screen = pygame.display.set_mode((screen_width, screen_height))
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen.fill(lightblue)
 
 
@@ -32,8 +36,8 @@ pygame.display.set_caption("Jump Until You Die")
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, x = 0, y = 0):
-        super(Player, self).__init__()
+    def __init__(self):
+        super().__init__()
         self.jumping = False
         self.surf = pygame.Surface((30, 30))
         self.surf.fill(pink)
@@ -52,16 +56,15 @@ class Player(pygame.sprite.Sprite):
 
         if pressed_keys[pygame.K_RIGHT]:
             self.acceleration.x = ACC
-                
+
         self.acceleration.x += self.velocity.x * FRIC
         self.velocity += self.acceleration
         self.position += self.velocity + 0.4 * self.acceleration
 
-        if self.position.x > screen_width:
+        if self.position.x > SCREEN_WIDTH:
             self.position.x = 0
         if self.position.x < 0:
-
-            self.position.x = screen_width 
+            self.position.x = SCREEN_WIDTH
 
         self.rect.midbottom = self.position
 
@@ -69,8 +72,8 @@ class Player(pygame.sprite.Sprite):
         collisions = pygame.sprite.spritecollide(self, platforms, False)
 
         if collisions and not self.jumping:
-           self.jumping = True
-           self.velocity.y = -15
+            self.jumping = True
+            self.velocity.y = -15
 
 
     def no_jump(self):
@@ -78,7 +81,7 @@ class Player(pygame.sprite.Sprite):
             if self.velocity.y < -3:
                 self.velocity.y = -3
 
- 
+
 
     def update(self):
         collisions = pygame.sprite.spritecollide(self, platforms, False)
@@ -92,28 +95,27 @@ class Player(pygame.sprite.Sprite):
 
 class Coins(pygame.sprite.Sprite):
     def __init__(self):
-        super(Coins, self).__init__()
+        super().__init__()
         self.surf = pygame.Surface((7.5, 7.5))
         self.surf.fill(yellow)
-        self.rect = self.surf.get_rect(center = (random.randint(0, screen_width - 50),
+        self.rect = self.surf.get_rect(center = (random.randint(0, SCREEN_WIDTH - 50),
 
-                                                 random.randint(0, screen_height - 50)))
+                                                 random.randint(0, SCREEN_HEIGHT - 50)))
         self.speed = 0
         self.moving = True
 
     def move(self):
-        if self.moving == True:
+        if self.moving is True:
             self.rect.move_ip(self.speed, 0)
 
     def update(self):
         coincollision = pygame.sprite.spritecollide(self, coins, False)
-        for i in coins:
+        for coi in coins:
             if coincollision:
-                change_color(i)
+                change_color(coi)
 
-def change_color(i):
-    i.surf.fill(lightblue)
-    pygame.display.update
+def change_color(coi):
+    coi.surf.fill(lightblue)
 
 
 class Platform(pygame.sprite.Sprite):
@@ -121,30 +123,31 @@ class Platform(pygame.sprite.Sprite):
         super(Platform, self).__init__()
         self.surf = pygame.Surface((random.randint(50, 175), 13))
         self.surf.fill(darkestblue)
-        self.rect = self.surf.get_rect(center = (random.randint(0, screen_width - 50),
+        self.rect = self.surf.get_rect(center = (random.randint(0, SCREEN_WIDTH - 50),
 
-                                                 random.randint(0, screen_height - 50)))
+                                                 random.randint(0, SCREEN_HEIGHT - 50)))
         self.speed = random.randint(-2, 2)
         self.moving = True
 
     def move(self):
-        if self.moving == True:
+        if self.moving is True:
             self.rect.move_ip(self.speed, 0)
 
-            if self.speed > 0 and self.rect.left > screen_width:
+            if self.speed > 0 and self.rect.left > SCREEN_WIDTH:
                 self.rect.right = 0
 
             if self.speed < 0 and self.rect.right < 0:
-                self.rect.left = screen_width
+                self.rect.left = SCREEN_WIDTH
 
 def platform_collision(platform, groupies):
     if pygame.sprite.spritecollideany(platform, groupies):
         return True
     else:
-        for i in groupies:
-            if i == platform:
+        for thing in groupies:
+            if thing == platform:
                 continue
-            if (abs(platform.rect.top - i.rect.bottom) < 50) and (abs(platform.rect.bottom - i.rect.top) < 50):
+            if (abs(platform.rect.top - thing.rect.bottom) < 50) and \
+                (abs(platform.rect.bottom - thing.rect.top) < 50):
                 return True
         C = False
 
@@ -155,9 +158,9 @@ def coin_collision(coin, groupies):
         for i in groupies:
             if i == platform:
                 continue
-            if (abs(platform.rect.top - i.rect.bottom) < 50) and (abs(platform.rect.bottom - i.rect.top) < 50):
+            if (abs(platform.rect.top - i.rect.bottom) < 50) and \
+                (abs(platform.rect.bottom - i.rect.top) < 50):
                 return True
-        C = False
 
 def newplatforms():
     while len(platforms) < 6:
@@ -166,10 +169,10 @@ def newplatforms():
         C = True
 
         while C:
-             p = Platform()
-             p.rect.center = (random.randrange(0, screen_width - width),
-                              random.randrange(-50, 0))
-             C = platform_collision(p, platforms)
+            p = Platform()
+            p.rect.center = (random.randrange(0, SCREEN_WIDTH - width),
+                            random.randrange(-50, 0))
+            C = platform_collision(p, platforms)
         platforms.add(p)
         all_sprites.add(p)
 
@@ -179,10 +182,10 @@ def newcoins():
         C = True
 
         while C:
-             p = Coins()
-             p.rect.center = (random.randrange(0, screen_width - 10),
-                              random.randrange(-50, 0))
-             C = coin_collision(p, platforms)
+            p = Coins()
+            p.rect.center = (random.randrange(0, SCREEN_WIDTH - 10),
+                            random.randrange(-50, 0))
+            C = coin_collision(p, platforms)
         coins.add(p)
         all_sprites.add(p)
 
@@ -191,9 +194,9 @@ platform = Platform()
 player = Player()
 coin = Coins()
 
-platform.surf = pygame.Surface((screen_width, 30))
+platform.surf = pygame.Surface((SCREEN_WIDTH, 30))
 platform.surf.fill(darkerblue)
-platform.rect = platform.surf.get_rect(center = (screen_width / 2, screen_height - 10))
+platform.rect = platform.surf.get_rect(center = (SCREEN_WIDTH / 2, SCREEN_HEIGHT - 10))
 platform.moving = False
 
 
@@ -208,7 +211,7 @@ all_sprites.add(platform,
 platforms.add(platform)
 coins.add(coin)
 
- 
+
 for i in range(random.randint(4, 5)):
     C = True
     new_platform = Platform()
@@ -244,23 +247,23 @@ while True:
 
 
 
-    if player.rect.top <= screen_height / 2.5:
+    if player.rect.top <= SCREEN_HEIGHT / 2.5:
         player.position.y += abs(player.velocity.y)
         for i in platforms:
             i.rect.y += abs(player.velocity.y)
-            if i.rect.top >= screen_height:
+            if i.rect.top >= SCREEN_HEIGHT:
                 i.kill()
 
 
 
-    if player.rect.top > screen_height:
+    if player.rect.top > SCREEN_HEIGHT:
         for i in all_sprites:
             i.kill()
             time.sleep(0.5)
             screen.fill(lightblue)
             font = pygame.font.SysFont("Adobe Myungjo Std Orta", 32)
             text = font.render("Better luck next time!", True, (pink))
-            screen.blit(text, (screen_width / 3.6, screen_height / 2))
+            screen.blit(text, (SCREEN_WIDTH / 3.6, SCREEN_HEIGHT / 2))
             pygame.display.update()
             time.sleep(1.75)
             pygame.quit()
@@ -276,14 +279,9 @@ while True:
 
     pygame.display.update()
     clock.tick(60)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+

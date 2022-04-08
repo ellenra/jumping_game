@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.commandsToSkipShell": [
+        "\"python.linting.pylintArgs\": [     \"--extension-pkg-whitelist=pygame\" ]"
+    ]
+}
