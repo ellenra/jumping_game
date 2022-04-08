@@ -1,9 +1,6 @@
 # Ohjelmistotekniikka, harjoitustyö
 
 ### Dokumentaatio
-[Gitlog](https://github.com/ellenra/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
-
-[Komentorivi](https://github.com/ellenra/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
 [Vaatimusmaarittely](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
