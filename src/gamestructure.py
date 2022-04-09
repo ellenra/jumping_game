@@ -2,7 +2,8 @@ import random
 import time
 import sys
 import pygame
-
+from player import Player
+from platforms import Platform
 
 pygame.init()
 
@@ -20,8 +21,6 @@ LIGHTBLUE = (176, 224, 230)
 DARKERBLUE = (123, 213, 213)
 DARKESTBLUE = (86, 186, 206)
 
-
-
 ACC = 0.5
 FRIC = -0.12
 
@@ -34,63 +33,6 @@ SCREEN.fill(LIGHTBLUE)
 
 pygame.display.set_caption("Jump Until You Die")
 
-
-class Player(pygame.sprite.Sprite):
-    def __init__(self):
-        super().__init__()
-        self.jumping = False
-        self.surf = pygame.Surface((30, 30))
-        self.surf.fill(PINK)
-        self.rect = self.surf.get_rect()
-
-        self.position = VECTOR((250, 530))
-        self.velocity = VECTOR(0, 0)
-        self.acceleration = VECTOR(0, 0)
-
-    def move(self):
-        self.acceleration = VECTOR(0, 0.4)
-        pressed_keys = pygame.key.get_pressed()
-
-        if pressed_keys[pygame.K_LEFT]:
-            self.acceleration.x = -ACC
-
-        if pressed_keys[pygame.K_RIGHT]:
-            self.acceleration.x = ACC
-
-        self.acceleration.x += self.velocity.x * FRIC
-        self.velocity += self.acceleration
-        self.position += self.velocity + 0.4 * self.acceleration
-
-        if self.position.x > SCREEN_WIDTH:
-            self.position.x = 0
-        if self.position.x < 0:
-            self.position.x = SCREEN_WIDTH
-
-        self.rect.midbottom = self.position
-
-    def jump(self):
-        collisions = pygame.sprite.spritecollide(self, PLATFORMS, False)
-
-        if collisions and not self.jumping:
-            self.jumping = True
-            self.velocity.y = -15
-
-
-    def no_jump(self):
-        if self.jumping:
-            if self.velocity.y < -3:
-                self.velocity.y = -3
-
-
-
-    def update(self):
-        collisions = pygame.sprite.spritecollide(self, PLATFORMS, False)
-        if self.velocity.y > 0:
-            if collisions:
-                if self.position.y < collisions[0].rect.bottom:
-                    self.position.y = collisions[0].rect.top +1
-                    self.velocity.y = 0
-                    self.jumping = False
 
 
 class Coins(pygame.sprite.Sprite):
@@ -117,25 +59,6 @@ def change_color(coi):
     coi.surf.fill(LIGHTBLUE)
 
 
-class Platform(pygame.sprite.Sprite):
-    def __init__(self):
-        super(Platform, self).__init__()
-        self.surf = pygame.Surface((random.randint(50, 175), 13))
-        self.surf.fill(DARKESTBLUE)
-        self.rect = self.surf.get_rect(center=(random.randint(0, SCREEN_WIDTH - 50),
-                                               random.randint(0, SCREEN_HEIGHT - 50)))
-        self.speed = random.randint(-2, 2)
-        self.moving = True
-
-    def move(self):
-        if self.moving is True:
-            self.rect.move_ip(self.speed, 0)
-
-            if self.speed > 0 and self.rect.left > SCREEN_WIDTH:
-                self.rect.right = 0
-
-            if self.speed < 0 and self.rect.right < 0:
-                self.rect.left = SCREEN_WIDTH
 
 def platform_collision(platform, groupies):
     if pygame.sprite.spritecollideany(platform, groupies):
