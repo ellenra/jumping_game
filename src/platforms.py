@@ -1,11 +1,11 @@
 import random
 import pygame
+from settings import *
 
 
 SCREEN_HEIGHT = 550
 SCREEN_WIDTH = 500
 
-DARKESTBLUE = (86, 186, 206)
 
 
 class Platform(pygame.sprite.Sprite):
@@ -27,3 +27,12 @@ class Platform(pygame.sprite.Sprite):
 
             if self.speed < 0 and self.rect.right < 0:
                 self.rect.left = SCREEN_WIDTH
+                
+PLATFORM = Platform()
+PLATFORMS = pygame.sprite.Group()
+PLATFORMS.add(PLATFORM)
+
+PLATFORM.surf = pygame.Surface((SCREEN_WIDTH, 30))
+PLATFORM.surf.fill(DARKERBLUE)
+PLATFORM.rect = PLATFORM.surf.get_rect(center=(round(SCREEN_WIDTH/2), round(SCREEN_HEIGHT-10)))
+PLATFORM.moving = False

@@ -1,4 +1,6 @@
 import pygame
+from settings import *
+from platforms import *
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -32,6 +34,7 @@ class Player(pygame.sprite.Sprite):
             self.position.x = SCREEN_WIDTH
 
         self.rect.midbottom = self.position
+        
 
     def jump(self):
         collisions = pygame.sprite.spritecollide(self, PLATFORMS, False)
@@ -56,3 +59,9 @@ class Player(pygame.sprite.Sprite):
                     self.position.y = collisions[0].rect.top +1
                     self.velocity.y = 0
                     self.jumping = False
+                    
+PLAYER = Player()
+ALL_SPRITES = pygame.sprite.Group()
+
+ALL_SPRITES.add(PLATFORM,
+                PLAYER)
