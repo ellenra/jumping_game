@@ -1,6 +1,6 @@
 
 import unittest
-from gamestructure import Player
+from main import Player
 
 class TestPlayer(unittest.Testcase):
     def setUp(self):
