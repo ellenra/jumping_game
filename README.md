@@ -20,4 +20,7 @@ Testit suoritetaan komennolla:
 Testikattavuusraportti:
 > poetry run invoke coverage-report
 
+Pylintin tarkastukset:
+> poetry run invoke lint
+
 
