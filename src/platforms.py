@@ -1,6 +1,6 @@
 import random
 import pygame
-from settings import *
+from settings import DARKESTBLUE, DARKERBLUE
 
 
 SCREEN_HEIGHT = 550
@@ -27,7 +27,7 @@ class Platform(pygame.sprite.Sprite):
 
             if self.speed < 0 and self.rect.right < 0:
                 self.rect.left = SCREEN_WIDTH
-                
+
 PLATFORM = Platform()
 PLATFORMS = pygame.sprite.Group()
 PLATFORMS.add(PLATFORM)

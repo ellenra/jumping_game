@@ -3,6 +3,8 @@ import time
 import sys
 import pygame
 from player import *
+from login import *
+from tkinter import Tk
 
 pygame.init()
 
@@ -48,6 +50,7 @@ for i in range(random.randint(4, 5)):
 SCREEN.fill(LIGHTBLUE)
 pygame.display.set_caption("Jump Until You Die")
 
+
 while True:
     PLAYER.update()
 
@@ -67,7 +70,7 @@ while True:
     if PLAYER.rect.top <= SCREEN_HEIGHT / 2.5:
         PLAYER.position.y += abs(PLAYER.velocity.y)
         for i in PLATFORMS:
-            i.rect.y += abs(PLAYER.velocity.y)
+            i.rect.y += abs(int(PLAYER.velocity.y))
             if i.rect.top >= SCREEN_HEIGHT:
                 i.kill()
 
@@ -93,5 +96,4 @@ while True:
 
     pygame.display.update()
     CLOCK.tick(60)
-
 
