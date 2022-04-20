@@ -5,6 +5,7 @@ import pygame
 from player import *
 from login import *
 from tkinter import Tk
+from main_login import *
 
 pygame.init()
 

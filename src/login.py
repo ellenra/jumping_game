@@ -3,10 +3,11 @@ from tkinter import constants
 import tkinter as tk
 import tkinter.font as font
 
+
 window = Tk()
 FONT = font.Font(family='DeJavu Sans')
 
-def validate_login(username, password):
+def verification(username, password):
     print("username entered :", username.get())
     print("password entered :", password.get())
     return
@@ -33,5 +34,13 @@ def register():
     password_entry.pack()
 
     Label(register_screen, text="").pack()
-    Button(register_screen, text="Register", width=10, height=1, bg='#56BACE', font=FONT, command=window.destroy).pack()
+    Button(register_screen, text="Register", width=10, height=1, bg='#56BACE', font=FONT, command=create).pack()
+    
+def error():
+    error_screen = Toplevel(window)
+    error_screen.title("Error")
+    error_screen.geometry("400x100")
+    Label(error_screen, text="Invalid username or password", bg='#B0E0E6', font=FONT).pack()
+    Button(error_screen, text="Try again", bg='#56BACE', font=FONT, command=error_screen.destroy()).pack()
+    
 

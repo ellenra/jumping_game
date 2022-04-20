@@ -1,4 +1,14 @@
 from login import *
+import mysql.connector
+
+
+database = mysql.connector.connect(
+    host = "localhost",
+    user = "user",
+    password = "password",
+    database = "login_information"
+)
+cursor = database.cursor()
 
 
 
@@ -20,7 +30,7 @@ class LogInView:
         password_entry = tk.Entry(master=self._root, bg='#7BD5D5')
 
         button = tk.Button(master=self._root, text="Start game", bg='#56BACE',
-                           command=window.destroy, font=FONT)
+                           command=verification, font=FONT)
         register_button = tk.Button(master=self._root, text="Register", bg="#56BACE",
                                     command=register, font=FONT)
 
@@ -29,18 +39,15 @@ class LogInView:
         username_entry.grid(row=1, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
         password.grid(padx=5, pady=5)
         password_entry.grid(row=2, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
-        
+
         button.grid(columnspan=2, sticky=(constants.E,constants.W), padx=5, pady=5)
         register_button.grid(columnspan=3, sticky=(constants.E,constants.W), padx=5, pady=5)
 
         self._root.grid_columnconfigure(1, weight=1, minsize=200)
-        
-        
 
-        
 
 ui = LogInView(window)
 ui.start()
 
 window.mainloop()
-        
+
