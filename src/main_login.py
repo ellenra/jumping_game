@@ -50,10 +50,7 @@ def register():
     password_entry.grid(row=3, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
     button.grid(columnspan=2, sticky=(constants.E,constants.W), padx=5, pady=5)
-    my_str = StringVar()
-    info = Label(register_screen, text=my_str, width=10)
-    info.grid(row=4, column=1)
-    my_str = ("Output")
+
     
 def add_to_database():
     flag_validation=True
