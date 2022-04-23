@@ -10,4 +10,4 @@
 | 11.4. | 5 | Pelin koodin jakamista ja hienosäätöä
 | 12.4. | 3 | Kirjautumis- ja rekisteröinti-ikkunan teon opettelu ja osittainen toteutus
 | 21.4. | 5 | Tietokannan käyttöönotto
-| yht | 30,5 |
+| yht | 35,5 |
