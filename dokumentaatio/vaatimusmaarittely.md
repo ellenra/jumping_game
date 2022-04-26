@@ -5,10 +5,16 @@ Sovellus on yksinkertainen tasohyppelypeli. Peliin rekisteröidytään käyttäj
 näkyy käyttäjän viisi parasta pelitulosta.
 
 ### Perusversion toiminnallisuus
-* Käyttäjä voi luoda käyttäjätunnuksen
-* Käyttäjä voi kirjautua käyttäjätunnuksella peliin
+* Käyttäjä voi luoda käyttäjätunnuksen ```diff
++ tehty
+```
+* Käyttäjä voi kirjautua käyttäjätunnuksella peliin ```diff
++ tehty
+```
   - Jos tunnus tai salasana on väärin, tulee virheilmoitus
-* Käyttäjä voi aloittaa pelin
+* Käyttäjä pystyy pelata pelia```diff
++ tehty
+```
 * Kun käyttäjä häviää pelin, tulee näkyvyyn viisi parasta pelitulosta
 * Käyttäjä voi kirjautua ulos pelistä
 
