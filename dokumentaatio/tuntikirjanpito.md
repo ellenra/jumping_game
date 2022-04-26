@@ -11,4 +11,5 @@
 | 12.4. | 3 | Kirjautumis- ja rekisteröinti-ikkunan teon opettelu ja osittainen toteutus
 | 21.4. | 5 | Tietokannan käyttöönotto
 | 25.4. | 2 | Virheiden korjausta
-| yht | 37,5 |
+| 26.4. | 5 | Yritin lisätä peliin kuvia ja tehdä testejä (vielä kesken)
+| yht | 42,5 |
