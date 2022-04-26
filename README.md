@@ -8,6 +8,8 @@
 
 [Changelog](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
 
+[Arkkitehtuurikuvaus](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
 
 ### Komentorivitoiminnot
 
