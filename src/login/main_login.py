@@ -16,10 +16,9 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS
                information(username TEXT, email TEXT, password TEXT)''')
 connect.commit()
 
-
 def login():
     cursor.execute('''SELECT username, password FROM information
-                   WHERE username=? AND password=?''', (username_verification.get(), 
+                   WHERE username=? AND password=?''', (username_verification.get(),
                    password_verification.get()))
     row = cursor.fetchone()
     if row:
@@ -29,28 +28,28 @@ def login():
 
 
 def register():
-    register = Toplevel(window)
+    register_screen = Toplevel(window)
     global USERNAME, PASSWORD, EMAIL
 
-    register.title("Register")
-    register.geometry("300x200")
-    register.configure(bg='#B0E0E6')
+    register_screen.title("Register")
+    register_screen.geometry("300x200")
+    register_screen.configure(bg='#B0E0E6')
 
     USERNAME = StringVar()
     PASSWORD = StringVar()
     EMAIL = StringVar()
 
-    label = Label(register, text="Enter information", bg='#B0E0E6', font=FONT)
+    label = Label(register_screen, text="Enter information", bg='#B0E0E6', font=FONT)
 
-    username_label = Label(register, text="Username: ", bg='#B0E0E6')
-    email_label = Label(register, text="Email: ", bg='#B0E0E6')
-    password_label = Label(register, text="Password: ", bg='#B0E0E6')
+    username_label = Label(register_screen, text="Username: ", bg='#B0E0E6')
+    email_label = Label(register_screen, text="Email: ", bg='#B0E0E6')
+    password_label = Label(register_screen, text="Password: ", bg='#B0E0E6')
 
-    username_entry = Entry(register, textvariable=USERNAME, bg='#7BD5D5')
-    email_entry = Entry(register, textvariable=EMAIL, bg='#7BD5D5')
-    password_entry = Entry(register, textvariable=PASSWORD, bg='#7BD5D5')
+    username_entry = Entry(register_screen, textvariable=USERNAME, bg='#7BD5D5')
+    email_entry = Entry(register_screen, textvariable=EMAIL, bg='#7BD5D5')
+    password_entry = Entry(register_screen, textvariable=PASSWORD, bg='#7BD5D5')
 
-    button = Button(register, text="Register", width=10, height=1, bg='#56BACE',
+    button = Button(register_screen, text="Register", width=10, height=1, bg='#56BACE',
                     font=FONT, command=add_to_database)
 
     label.grid(columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
@@ -64,8 +63,6 @@ def register():
     password_entry.grid(row=3, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
     button.grid(columnspan=2, sticky=(constants.E,constants.W), padx=5, pady=5)
-
-
 
 
 def add_to_database():
@@ -122,4 +119,3 @@ ui.start()
 
 window.mainloop()
 connect.close()
-

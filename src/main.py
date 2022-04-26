@@ -5,7 +5,7 @@ import pygame
 from player import PLAYER, PLATFORMS, ALL_SPRITES, PINK, SCREEN_WIDTH
 from settings import SCREEN, LIGHTBLUE, CLOCK, SCREEN_HEIGHT
 from platforms import Platform
-from main_login import LogInView
+from login.main_login import LogInView
 
 pygame.init()
 
