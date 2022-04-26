@@ -20,6 +20,6 @@ login-)verification: login("test", "abc123")
 verification-)login_information: "test", "abc123"
 login_information--)verification: user
 verification--)login: user
-login-)main: "Game starts..."
+login-)main: Game starts...
 
 ```
