@@ -16,10 +16,11 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS
                information(username TEXT, email TEXT, password TEXT)''')
 connect.commit()
 
+
 def login():
     cursor.execute('''SELECT username, password FROM information
-                   WHERE username=? AND password=?''', (username_verification.get(),
-                   password_verification.get()))
+                   WHERE username=? AND password=?''', (USERNAME_VERIFICATION.get(),
+                   PASSWORD_VERIFICATION.get()))
     row = cursor.fetchone()
     if row:
         window.destroy()
@@ -27,10 +28,20 @@ def login():
         error()
 
 
+def add_to_database():
+    cursor.execute("INSERT INTO information VALUES (:username, :email, :password)", {
+            'username': USERNAME.get(),
+            'email': EMAIL.get(),
+            'password': PASSWORD.get()
+            })
+    connect.commit()
+    window.destroy()
+
+
 def register():
-    register_screen = Toplevel(window)
     global USERNAME, PASSWORD, EMAIL
 
+    register_screen = Toplevel(window)
     register_screen.title("Register")
     register_screen.geometry("300x200")
     register_screen.configure(bg='#B0E0E6')
@@ -65,16 +76,6 @@ def register():
     button.grid(columnspan=2, sticky=(constants.E,constants.W), padx=5, pady=5)
 
 
-def add_to_database():
-    global USERNAME, EMAIL, PASSWORD
-    cursor.execute("INSERT INTO information VALUES (:username, :email, :password)", {
-            'username': USERNAME.get(),
-            'email': EMAIL.get(),
-            'password': PASSWORD.get()
-            })
-    connect.commit()
-    window.destroy()
-
 
 def error():
     messagebox.showerror("Error", "Invalid username or password")
@@ -85,17 +86,18 @@ class LogInView:
         self._frame = tk.Frame(master=self._root)
 
     def start(self):
-        global username_verification, password_verification
+        global USERNAME_VERIFICATION, PASSWORD_VERIFICATION
+
         heading = tk.Label(master=self._root, text="Login or Register", bg="#B0E0E6", font=FONT)
-        username_verification = StringVar()
-        password_verification = StringVar()
+        USERNAME_VERIFICATION = StringVar()
+        PASSWORD_VERIFICATION = StringVar()
 
         username = tk.Label(master=self._root, text="Username", bg='#B0E0E6')
         username_entry = tk.Entry(master=self._root, bg ='#7BD5D5',
-                                  textvariable=username_verification)
+                                  textvariable=USERNAME_VERIFICATION)
         password = tk.Label(master=self._root, text="Password", bg='#B0E0E6')
         password_entry = tk.Entry(master=self._root, bg='#7BD5D5',
-                                  textvariable=password_verification)
+                                  textvariable=PASSWORD_VERIFICATION)
 
         button = tk.Button(master=self._root, text="Start game", bg='#56BACE',
                            command=login, font=FONT)

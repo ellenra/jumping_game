@@ -2,6 +2,7 @@ import pygame
 from settings import PINK, VECTOR, ACC, FRIC
 from platforms import SCREEN_WIDTH, PLATFORMS, PLATFORM
 
+
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -9,7 +10,6 @@ class Player(pygame.sprite.Sprite):
         self.surf = pygame.Surface((30, 30))
         self.surf.fill(PINK)
         self.rect = self.surf.get_rect()
-
 
         self.position = VECTOR((250, 530))
         self.velocity = VECTOR(0, 0)

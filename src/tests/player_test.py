@@ -1,9 +1,15 @@
 import unittest
-from gamestructure import Player
+import sys
 
-class TestPlayer(unittest.Testcase):
+sys.path.append('./src/platforms.py')
+
+from platforms import Platform
+
+class TestLogIn(unittest.Testcase):
     def setUp(self):
-        self.player = Player()
-    def player_size(self):
-        self.assertEqual(self.grid.size(), (30, 30))
+        self.platform = Platform()
+    def test_platform_movement(self):
+        self.platform.speed = 2
+        self.platform.rect.left = 600
+        self.assertEqual(self.platform.rect.right, 0)
 
