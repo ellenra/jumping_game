@@ -10,6 +10,8 @@
 
 [Arkkitehtuurikuvaus](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+[1. Release](https://github.com/ellenra/ot-harjoitustyo/releases/tag/viikko5)
+
 
 ### Komentorivitoiminnot
 
