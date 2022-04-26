@@ -10,7 +10,7 @@ SCREEN_WIDTH = 500
 
 class Platform(pygame.sprite.Sprite):
     def __init__(self):
-        super(Platform, self).__init__()
+        super().__init__()
         self.surf = pygame.Surface((random.randint(50, 175), 13))
         self.surf.fill(DARKESTBLUE)
         self.rect = self.surf.get_rect(center=(random.randint(0, SCREEN_WIDTH - 50),

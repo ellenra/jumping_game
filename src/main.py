@@ -1,48 +1,48 @@
-import random
-import time
+import random as rand
+from time import time
 import sys
 import pygame
-from player import *
-from login import *
-from tkinter import Tk
-from main_login import *
+from player import PLAYER, PLATFORMS, ALL_SPRITES, PINK, SCREEN_WIDTH
+from settings import SCREEN, LIGHTBLUE, CLOCK, SCREEN_HEIGHT
+from platforms import Platform
+from main_login import LogInView
 
 pygame.init()
 
 def platform_collision(platform, groupies):
     if pygame.sprite.spritecollideany(platform, groupies):
         return True
-
     for thing in groupies:
         if thing == platform:
             continue
         if (abs(platform.rect.top - thing.rect.bottom) < 50) and \
             (abs(platform.rect.bottom - thing.rect.top) < 50):
             return True
+    return None
 
 
 def newplatforms():
     while len(PLATFORMS) < 6:
-        width = random.randrange(50, 175)
+        width = rand.randrange(50, 175)
         plat = Platform()
-        is_true = True
+        true = True
 
-        while is_true:
+        while true:
             plat = Platform()
-            plat.rect.center = (random.randrange(0, SCREEN_WIDTH - width),
-                                random.randrange(-50, 0))
-            is_true = platform_collision(plat, PLATFORMS)
+            plat.rect.center = (rand.randrange(0, SCREEN_WIDTH - width),
+                                 rand.randrange(-50, 0))
+            true = platform_collision(plat, PLATFORMS)
         PLATFORMS.add(plat)
         ALL_SPRITES.add(plat)
 
 
-for i in range(random.randint(4, 5)):
-    is_true = True
+for i in range(rand.randint(4, 5)):
+    IS_TRUE = True
     new_platform = Platform()
 
-    while is_true:
+    while IS_TRUE:
         new_platform = Platform()
-        is_true = platform_collision(new_platform, PLATFORMS)
+        IS_TRUE = platform_collision(new_platform, PLATFORMS)
 
     PLATFORMS.add(new_platform)
     ALL_SPRITES.add(new_platform)
@@ -97,4 +97,3 @@ while True:
 
     pygame.display.update()
     CLOCK.tick(60)
-

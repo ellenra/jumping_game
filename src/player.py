@@ -1,6 +1,6 @@
 import pygame
-from settings import *
-from platforms import *
+from settings import PINK, VECTOR, ACC, FRIC
+from platforms import SCREEN_WIDTH, PLATFORMS, PLATFORM
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -9,6 +9,7 @@ class Player(pygame.sprite.Sprite):
         self.surf = pygame.Surface((30, 30))
         self.surf.fill(PINK)
         self.rect = self.surf.get_rect()
+
 
         self.position = VECTOR((250, 530))
         self.velocity = VECTOR(0, 0)
@@ -34,7 +35,7 @@ class Player(pygame.sprite.Sprite):
             self.position.x = SCREEN_WIDTH
 
         self.rect.midbottom = self.position
-        
+
 
     def jump(self):
         collisions = pygame.sprite.spritecollide(self, PLATFORMS, False)
@@ -43,13 +44,10 @@ class Player(pygame.sprite.Sprite):
             self.jumping = True
             self.velocity.y = -15
 
-
     def no_jump(self):
         if self.jumping:
             if self.velocity.y < -3:
                 self.velocity.y = -3
-
-
 
     def update(self):
         collisions = pygame.sprite.spritecollide(self, PLATFORMS, False)
@@ -59,7 +57,7 @@ class Player(pygame.sprite.Sprite):
                     self.position.y = collisions[0].rect.top +1
                     self.velocity.y = 0
                     self.jumping = False
-                    
+
 PLAYER = Player()
 ALL_SPRITES = pygame.sprite.Group()
 
