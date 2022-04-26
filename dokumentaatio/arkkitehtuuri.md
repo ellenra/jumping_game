@@ -1,7 +1,7 @@
 # Arkkitehtuurikuvaus
 
 ## Rakenne
-
+![Pakkausrakenne](./kuvat/pakkauskaavio.png)
 
 
 ## Käyttöliittymä
