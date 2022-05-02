@@ -8,3 +8,7 @@
 * Peliä on hienosäädetty
 * Pelin kirjautumisikkuna ja rekisteröinti-ikkuna tehty, mutta ne eivät käytössä vielä
 * Koodi jaettu osiin eri tiedostoissa
+
+### Viikko 5
+* Tietokanta luotu
+* Kirjautuminen ja rekisteröityminen toimii
