@@ -1,12 +1,9 @@
 import random
 import pygame
-from settings import DARKESTBLUE, DARKERBLUE
+from settings import DARKESTBLUE, DARKERBLUE, SCREEN_HEIGHT, SCREEN_WIDTH
 
-
-SCREEN_HEIGHT = 550
-SCREEN_WIDTH = 500
-
-
+SPEED = random.randint(-2, 2)
+SURFACE = random.randint(50, 175)
 
 class Platform(pygame.sprite.Sprite):
     def __init__(self):

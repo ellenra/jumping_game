@@ -1,5 +1,5 @@
 import random as rand
-from time import time
+import time
 import sys
 import pygame
 from player import PLAYER, PLATFORMS, ALL_SPRITES, PINK, SCREEN_WIDTH

@@ -2,18 +2,21 @@ import pygame
 from settings import PINK, VECTOR, ACC, FRIC
 from platforms import SCREEN_WIDTH, PLATFORMS, PLATFORM
 
+POSITION = VECTOR((250, 530))
+SIZE = (30, 30)
+VECTOR_0 = VECTOR(0, 0)
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.jumping = False
-        self.surf = pygame.Surface((30, 30))
+        self.surf = pygame.Surface(SIZE)
         self.surf.fill(PINK)
         self.rect = self.surf.get_rect()
 
-        self.position = VECTOR((250, 530))
-        self.velocity = VECTOR(0, 0)
-        self.acceleration = VECTOR(0, 0)
+        self.position = POSITION
+        self.velocity = VECTOR_0
+        self.acceleration = VECTOR_0
 
     def move(self):
         self.acceleration = VECTOR(0, 0.4)
