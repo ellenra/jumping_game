@@ -10,7 +10,7 @@ näkyy käyttäjän viisi parasta pelitulosta.
   - Jos tunnus tai salasana on väärin, tulee virheilmoitus (tehty)
 * Käyttäjä pystyy pelata pelia (tehty)
 * Pelissä näkyy pisteet (tehty)
-* Kun käyttäjä häviää pelin, tulee näkyviin pistemäärä (tehty)
+* Kun käyttäjä häviää pelin, tulee näkyviin loppupistemäärä (tehty)
 * Käyttäjä voi kirjautua ulos pelistä
 
 ### Jatkokehitysideoita
