@@ -18,7 +18,7 @@ connect.commit()
 
 
 def login():
-    """Hakee käyttäjän kirjoittamat tiedot.
+    """Tarkastaa onko kirjautumistiedot tietokannassa.
     """
     cursor.execute('''SELECT username, password FROM information
                    WHERE username=? AND password=?''', (USERNAME_VERIFICATION.get(),
