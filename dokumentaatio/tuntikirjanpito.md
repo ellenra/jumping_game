@@ -12,4 +12,5 @@
 | 21.4. | 5 | Tietokannan käyttöönotto
 | 25.4. | 2 | Virheiden korjausta
 | 26.4. | 5 | Yritin tehdä testejä + lisätä uusia toiminnallisuuksia (vielä kesken)
-| yht | 42,5 |
+| 3.4. | 4 | Testien tekoa ja pelin pistejärjestelmä tehty
+| yht | 46,5 |
