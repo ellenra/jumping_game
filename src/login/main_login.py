@@ -18,6 +18,8 @@ connect.commit()
 
 
 def login():
+    """Hakee käyttäjän kirjoittamat tiedot.
+    """
     cursor.execute('''SELECT username, password FROM information
                    WHERE username=? AND password=?''', (USERNAME_VERIFICATION.get(),
                    PASSWORD_VERIFICATION.get()))
@@ -29,6 +31,8 @@ def login():
 
 
 def add_to_database():
+    """Lisää käyttäjän tiedot tietokantaan.
+    """
     cursor.execute("INSERT INTO information VALUES (:username, :email, :password)", {
             'username': USERNAME.get(),
             'email': EMAIL.get(),
@@ -39,6 +43,8 @@ def add_to_database():
 
 
 def register():
+    """Luo rekisteri-ikkunan ja hallinnassa sen toiminnasta.
+    """
     global USERNAME, PASSWORD, EMAIL
 
     register_screen = Toplevel(window)
@@ -78,14 +84,25 @@ def register():
 
 
 def error():
+    """Hoitaa ongelman, jos väärä salasana tai käyttäjätunnus.
+    """
     messagebox.showerror("Error", "Invalid username or password")
 
 class LogInView:
+    """Luokka, joka luo ja on vastuussa kirjautumisikkunanäkymästä.
+    """
     def __init__(self, root):
+        """Luo ikkunan juuret.
+
+        Args:
+            root: Ikkunan juuret, johon kaikki muut luodaan.
+        """
         self._root = root
         self._frame = tk.Frame(master=self._root)
 
     def start(self):
+        """Funktio, joka on hallinnassa kirjautumisikkunasta.
+        """
         global USERNAME_VERIFICATION, PASSWORD_VERIFICATION
 
         heading = tk.Label(master=self._root, text="Login or Register", bg="#B0E0E6", font=FONT)

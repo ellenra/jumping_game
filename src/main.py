@@ -10,6 +10,15 @@ from login.main_login import LogInView
 pygame.init()
 
 def platform_collision(platform, groupies):
+    """Käsittelee liikkuvien objektien törmäyksiä.
+
+    Args:
+        platform: Liikkuva taso.
+        groupies: Tasoon törmäävä objekti.
+
+    Returns:
+        True jos törmäys, muuten None.
+    """
     if pygame.sprite.spritecollideany(platform, groupies):
         return True
     for thing in groupies:
@@ -22,6 +31,8 @@ def platform_collision(platform, groupies):
 
 
 def newplatforms():
+    """Funktio, joka on vastuussa uusien tasojen luomisesta.
+    """
     while len(PLATFORMS) < 6:
         width = rand.randrange(50, 175)
         plat = Platform()

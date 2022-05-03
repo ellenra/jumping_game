@@ -6,7 +6,14 @@ SPEED = random.randint(-2, 2)
 SURFACE = random.randint(50, 175)
 
 class Platform(pygame.sprite.Sprite):
+    """Luokka, joka käsittelee tasoja, joilla pelaaja hyppii.
+
+    Args:
+        pygame (sprite): Luo tasoista liikkuvia objekteja.
+    """
     def __init__(self):
+        """Luokan konstruktori, joka luo tasot.
+        """
         super().__init__()
         self.surf = pygame.Surface((random.randint(50, 175), 13))
         self.surf.fill(DARKESTBLUE)
@@ -17,6 +24,8 @@ class Platform(pygame.sprite.Sprite):
         self.point = True
 
     def move(self):
+        """Määrää tasojen liikkumista pelissä.
+        """
         if self.moving is True:
             self.rect.move_ip(self.speed, 0)
 

@@ -8,7 +8,14 @@ VECTOR_0 = VECTOR(0, 0)
 SCORE = 0
 
 class Player(pygame.sprite.Sprite):
+    """Luokka, joka käsittelee pelaajahahmoa
+
+    Args:
+        pygame (sprite): Luo pelaajasta liikkuvan objektin.
+    """
     def __init__(self):
+        """Luokan konstruktori, joka luo pelaajan.
+        """
         super().__init__()
         self.jumping = False
         self.surf = pygame.Surface(SIZE)
@@ -21,6 +28,8 @@ class Player(pygame.sprite.Sprite):
         self.score = SCORE
 
     def move(self):
+        """Ohjaa pelaajan liikkumista.
+        """
         self.acceleration = VECTOR(0, 0.4)
         pressed_keys = pygame.key.get_pressed()
 
@@ -43,6 +52,8 @@ class Player(pygame.sprite.Sprite):
 
 
     def jump(self):
+        """Ohjaa pelaajan hyppäämistä.
+        """
         collisions = pygame.sprite.spritecollide(self, PLATFORMS, False)
 
         if collisions and not self.jumping:
@@ -50,11 +61,15 @@ class Player(pygame.sprite.Sprite):
             self.velocity.y = -15
 
     def no_jump(self):
+        """Estää hypyn.
+        """
         if self.jumping:
             if self.velocity.y < -3:
                 self.velocity.y = -3
 
     def update(self):
+        """Määrää mitä tapahtuu, jos pelaaja osuu tasoihin.
+        """
         collisions = pygame.sprite.spritecollide(self, PLATFORMS, False)
         if self.velocity.y > 0:
             if collisions:
