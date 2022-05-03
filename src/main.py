@@ -80,16 +80,28 @@ while True:
             i.kill()
             time.sleep(0.5)
             SCREEN.fill(LIGHTBLUE)
-            font = pygame.font.SysFont("Adobe Myungjo Std Orta", 32)
+            font = pygame.font.SysFont("Adobe Myungjo Std Orta", 38)
+            text_1 = font.render("Your Score : ", True, (PINK))
+            SCREEN.blit(text_1, (SCREEN_WIDTH / 3, SCREEN_HEIGHT / 2 - 70))
+            score = font.render(str(PLAYER.score), True, (PINK))
+            SCREEN.blit(score,(SCREEN_WIDTH / 2 - 20, SCREEN_HEIGHT / 2 - 20))
             text = font.render("Better luck next time!", True, (PINK))
-            SCREEN.blit(text, (SCREEN_WIDTH / 3.6, SCREEN_HEIGHT / 2))
+            SCREEN.blit(text, (SCREEN_WIDTH / 3.6, SCREEN_HEIGHT / 2 + 50))
             pygame.display.update()
-            time.sleep(1.75)
+            time.sleep(3)
             pygame.quit()
             sys.exit()
 
     newplatforms()
     SCREEN.fill(LIGHTBLUE)
+
+    font = pygame.font.SysFont("Adobe Myungjo Std Orta", 38)
+    texty = font.render("Score :", True, PINK)
+    SCREEN.blit(texty, (SCREEN_WIDTH / 2 - 70, 10))
+
+    font = pygame.font.SysFont("Adobe Myungjo Std Orta", 38)
+    texty = font.render(str(PLAYER.score), True, PINK)
+    SCREEN.blit(texty, (SCREEN_WIDTH / 2 + 30, 10))
 
     for entity in ALL_SPRITES:
         SCREEN.blit(entity.surf, entity.rect)

@@ -14,6 +14,7 @@ class Platform(pygame.sprite.Sprite):
                                                random.randint(0, SCREEN_HEIGHT - 50)))
         self.speed = random.randint(-2, 2)
         self.moving = True
+        self.point = True
 
     def move(self):
         if self.moving is True:

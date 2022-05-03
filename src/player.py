@@ -5,6 +5,7 @@ from platforms import SCREEN_WIDTH, PLATFORMS, PLATFORM
 POSITION = VECTOR((250, 530))
 SIZE = (30, 30)
 VECTOR_0 = VECTOR(0, 0)
+SCORE = 0
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -17,6 +18,7 @@ class Player(pygame.sprite.Sprite):
         self.position = POSITION
         self.velocity = VECTOR_0
         self.acceleration = VECTOR_0
+        self.score = SCORE
 
     def move(self):
         self.acceleration = VECTOR(0, 0.4)
@@ -57,6 +59,9 @@ class Player(pygame.sprite.Sprite):
         if self.velocity.y > 0:
             if collisions:
                 if self.position.y < collisions[0].rect.bottom:
+                    if collisions[0].point == True:
+                        collisions[0].point = False
+                        self.score += 1
                     self.position.y = collisions[0].rect.top +1
                     self.velocity.y = 0
                     self.jumping = False
