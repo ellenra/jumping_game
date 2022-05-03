@@ -9,7 +9,8 @@ näkyy käyttäjän viisi parasta pelitulosta.
 * Käyttäjä voi kirjautua käyttäjätunnuksella peliin  (tehty)
   - Jos tunnus tai salasana on väärin, tulee virheilmoitus (tehty)
 * Käyttäjä pystyy pelata pelia (tehty)
-* Kun käyttäjä häviää pelin, tulee näkyvyyn viisi parasta pelitulosta
+* Pelissä näkyy pisteet (tehty)
+* Kun käyttäjä häviää pelin, tulee näkyviin pistemäärä (tehty)
 * Käyttäjä voi kirjautua ulos pelistä
 
 ### Jatkokehitysideoita
