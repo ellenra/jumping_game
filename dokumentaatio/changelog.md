@@ -12,3 +12,8 @@
 ### Viikko 5
 * Tietokanta luotu
 * Kirjautuminen ja rekisteröityminen toimii
+
+## Viikko 6
+* Lisätty pistejärjestelmä
+* Lopussa näkyy yhteispistemäärä
+* Testejä tehty
