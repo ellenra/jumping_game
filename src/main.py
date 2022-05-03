@@ -2,9 +2,9 @@ import random as rand
 import time
 import sys
 import pygame
-from player import PLAYER, PLATFORMS, ALL_SPRITES, PINK, SCREEN_WIDTH
-from settings import SCREEN, LIGHTBLUE, CLOCK, SCREEN_HEIGHT
-from platforms import Platform
+from services.player import PLAYER, PLATFORMS, ALL_SPRITES, PINK, SCREEN_WIDTH
+from services.settings import SCREEN, LIGHTBLUE, CLOCK, SCREEN_HEIGHT
+from services.platforms import Platform
 from login.main_login import LogInView
 
 pygame.init()

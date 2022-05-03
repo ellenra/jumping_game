@@ -1,6 +1,6 @@
 import pygame
-from settings import PINK, VECTOR, ACC, FRIC
-from platforms import SCREEN_WIDTH, PLATFORMS, PLATFORM
+from services.settings import PINK, VECTOR, ACC, FRIC
+from services.platforms import SCREEN_WIDTH, PLATFORMS, PLATFORM
 
 POSITION = VECTOR((250, 530))
 SIZE = (30, 30)

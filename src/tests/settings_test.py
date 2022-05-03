@@ -1,5 +1,5 @@
 import unittest
-from settings import *
+from services.settings import *
 
 class TestSettings(unittest.TestCase):
     def setUp(self):

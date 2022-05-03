@@ -1,6 +1,6 @@
 import random
 import pygame
-from settings import DARKESTBLUE, DARKERBLUE, SCREEN_HEIGHT, SCREEN_WIDTH
+from services.settings import DARKESTBLUE, DARKERBLUE, SCREEN_HEIGHT, SCREEN_WIDTH
 
 SPEED = random.randint(-2, 2)
 SURFACE = random.randint(50, 175)
