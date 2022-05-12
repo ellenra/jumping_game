@@ -1,5 +1,7 @@
 # Jumping Game
 
+Peli on simppeli tasohyppelypeli johon kirjaudutaan omalla käyttäjätunnuksella.
+
 ### Dokumentaatio
 
 [Vaatimusmaarittely](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
@@ -12,13 +14,13 @@
 
 [1. Release](https://github.com/ellenra/ot-harjoitustyo/releases/tag/viikko5)
 
-### Asennus ja pelin aloitus
+## Asennus ja pelin aloitus
 1. Asenna riippuvuudet komennolla:
 > poetry install
 2. Käynnistä peli komennolla:
 > poetry run invoke start
 
-### Komentorivitoiminnot
+## Komentorivitoiminnot
 
 Ohjelman voi suorittaa komennolla:
 > poetry run invoke start
