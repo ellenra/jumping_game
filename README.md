@@ -12,11 +12,18 @@
 
 [1. Release](https://github.com/ellenra/ot-harjoitustyo/releases/tag/viikko5)
 
+### Asennus ja pelin aloitus
+1. Asenna riippuvuudet komennolla:
+> poetry install
+2. Käynnistä peli komennolla:
+> poetry run invoke start
 
 ### Komentorivitoiminnot
 
 Ohjelman voi suorittaa komennolla:
 > poetry run invoke start
+
+#### Testaus
 
 Testit suoritetaan komennolla:
 > poetry run invoke test
@@ -24,6 +31,9 @@ Testit suoritetaan komennolla:
 Testikattavuusraportti:
 > poetry run invoke coverage-report
 
-Pylintin tarkastukset:
+#### Pylint
+
+Pylintin tarkastukset tiedostossa .pylintrc komennolla:
+> poetry run invoke lint
 
 
