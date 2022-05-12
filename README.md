@@ -1,4 +1,4 @@
-# Ohjelmistotekniikka, harjoitustyö
+# Jumping Game
 
 ### Dokumentaatio
 
