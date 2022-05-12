@@ -2,7 +2,7 @@
 
 Peli on simppeli tasohyppelypeli johon kirjaudutaan omalla käyttäjätunnuksella.
 
-### Dokumentaatio
+## Dokumentaatio
 
 [Vaatimusmaarittely](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
@@ -25,7 +25,7 @@ Peli on simppeli tasohyppelypeli johon kirjaudutaan omalla käyttäjätunnuksell
 Ohjelman voi suorittaa komennolla:
 > poetry run invoke start
 
-#### Testaus
+### Testaus
 
 Testit suoritetaan komennolla:
 > poetry run invoke test
@@ -33,7 +33,7 @@ Testit suoritetaan komennolla:
 Testikattavuusraportti:
 > poetry run invoke coverage-report
 
-#### Pylint
+### Pylint
 
 Pylintin tarkastukset tiedostossa .pylintrc komennolla:
 > poetry run invoke lint
