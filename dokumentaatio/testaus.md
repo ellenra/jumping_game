@@ -1,6 +1,7 @@
 # Testausdokumentti
-* Ohjelmaa on testattu manuaalisesti sekä automaattiseilla testeillä hyödyntäen unittestiä.
+* Ohjelmaa on testattu manuaalisesti sekä automaattiseilla testeillä hyödyntäen unittestiä
 * Kirjautumista ja rekisteröitymistä on testattu manuaalisesti
+  * Sovellus ei hyväksy liian lyhyitä käyttäjänimiä, emaileja tai salasanoja
 * Kaikkia muita luokkia ja funktioita on testattu unittestilla
 
 ### Testauskattavuus
