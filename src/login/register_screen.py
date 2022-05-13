@@ -1,4 +1,4 @@
-from tkinter import Label, Entry, Button, StringVar, constants, Toplevel
+from tkinter import Label, Entry, Button, StringVar, constants, Toplevel, messagebox
 from login.login_settings import *
 
 def register():
@@ -26,7 +26,7 @@ def register():
     password_entry = Entry(register_screen, textvariable=PASSWORD, bg='#7BD5D5')
 
     button = Button(register_screen, text="Register", width=10, height=1, bg='#56BACE',
-                    font=FONT, command=add_to_database)
+                    font=FONT, command=test_errors)
 
     label.grid(columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
     username_label.grid(padx=5, pady=5)
@@ -40,6 +40,23 @@ def register():
 
     button.grid(columnspan=2, sticky=(constants.E,constants.W), padx=5, pady=5)
     
+def test_errors():
+    usnam = USERNAME.get()
+    em = EMAIL.get()
+    paswrd = PASSWORD.get()
+    while True:
+        if len(usnam) < 2:
+            register_error()
+            return
+        if len(em) < 4:
+            register_error()
+            return
+        if len(paswrd) < 2:
+            register_error()
+            return
+        else:
+            add_to_database()
+    
     
 def add_to_database():
     """Lisää käyttäjän tiedot tietokantaan.
@@ -51,3 +68,8 @@ def add_to_database():
             })
     connect.commit()
     window.destroy()
+    
+def register_error():
+    """Hoitaa ongelman, jos vääränlainen salasana, mail tai käyttäjätunnus.
+    """
+    messagebox.showerror("Error", "Invalid information, try again.")
