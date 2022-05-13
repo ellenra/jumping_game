@@ -1,7 +1,8 @@
 # Testausdokumentti
 * Ohjelmaa on testattu manuaalisesti sekä automaattiseilla testeillä hyödyntäen unittestiä
 * Kirjautumista ja rekisteröitymistä on testattu manuaalisesti
-  * Sovellus ei hyväksy liian lyhyitä käyttäjänimiä, emaileja tai salasanoja
+  * Rekisteröityessä sovellus ei hyväksy liian lyhyitä käyttäjänimiä, emaileja tai salasanoja
+  * Kirjuatuessa sovellus ei hyväksy väärää salasanaa tai käyttäjänimeä
 * Kaikkia muita luokkia ja funktioita on testattu unittestilla
 
 ### Testauskattavuus
