@@ -12,7 +12,7 @@ Peli on simppeli tasohyppelypeli johon kirjaudutaan omalla käyttäjätunnuksell
 
 [Arkkitehtuurikuvaus](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-[1. Release](https://github.com/ellenra/ot-harjoitustyo/releases/tag/viikko5)
+[Testausdokumentti](https://github.com/ellenra/jumping_game/blob/master/dokumentaatio/testaus.md)
 
 ## Asennus ja pelin aloitus
 1. Asenna riippuvuudet komennolla:
