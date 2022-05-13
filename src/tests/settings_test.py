@@ -1,5 +1,6 @@
 import unittest
 from services.settings import *
+from login.login_settings import *
 
 class TestSettings(unittest.TestCase):
     def setUp(self):
@@ -35,3 +36,11 @@ class TestSettings(unittest.TestCase):
 
     def test_fric(self):
         self.assertEqual(self.fric, -0.12)
+        
+class TestLogInSettings(unittest.TestCase):
+    def setUp(self):
+        self.window = window
+        self.geometry = GEOMETRY
+    
+    def test_geometry_is_right(self):
+        self.assertEqual(self.geometry, "400x200")
