@@ -71,15 +71,14 @@ class Player(pygame.sprite.Sprite):
         """Määrää mitä tapahtuu, jos pelaaja osuu tasoihin.
         """
         collisions = pygame.sprite.spritecollide(self, PLATFORMS, False)
-        if self.velocity.y > 0:
-            if collisions:
-                if self.position.y < collisions[0].rect.bottom:
-                    if collisions[0].point == True:
-                        collisions[0].point = False
-                        self.score += 1
-                    self.position.y = collisions[0].rect.top +1
-                    self.velocity.y = 0
-                    self.jumping = False
+        if self.velocity.y > 0 and collisions:
+            if self.position.y < collisions[0].rect.bottom:
+                if collisions[0].point:
+                    collisions[0].point = False
+                    self.score += 1
+                self.position.y = collisions[0].rect.top +1
+                self.velocity.y = 0
+                self.jumping = False
 
 PLAYER = Player()
 ALL_SPRITES = pygame.sprite.Group()

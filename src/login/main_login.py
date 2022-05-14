@@ -1,6 +1,6 @@
 from tkinter import messagebox, StringVar, constants
 import tkinter as tk
-from login.register_screen import *
+from login.register_screen import CURSOR, WINDOW, CONNECT, FONT, register
 
 class LogInView:
     """Luokka, joka luo ja on vastuussa kirjautumisikkunanäkymästä.
@@ -24,7 +24,7 @@ class LogInView:
         PASSWORD_VERIFICATION = StringVar()
 
         username = tk.Label(master=self._root, text="Username", bg='#B0E0E6')
-        username_entry = tk.Entry(master=self._root, bg ='#7BD5D5',
+        username_entry = tk.Entry(master=self._root, bg='#7BD5D5',
                                   textvariable=USERNAME_VERIFICATION)
         password = tk.Label(master=self._root, text="Password", bg='#B0E0E6')
         password_entry = tk.Entry(master=self._root, bg='#7BD5D5',
@@ -41,20 +41,20 @@ class LogInView:
         password.grid(padx=5, pady=5)
         password_entry.grid(row=2, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
-        button.grid(columnspan=2, sticky=(constants.E,constants.W), padx=5, pady=5)
-        register_button.grid(columnspan=3, sticky=(constants.E,constants.W), padx=5, pady=5)
+        button.grid(columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        register_button.grid(columnspan=3, sticky=(constants.E, constants.W), padx=5, pady=5)
 
         self._root.grid_columnconfigure(1, weight=1, minsize=200)
 
 def login():
     """Tarkastaa onko kirjautumistiedot tietokannassa.
     """
-    cursor.execute('''SELECT username, password FROM information
+    CURSOR.execute('''SELECT username, password FROM information
                    WHERE username=? AND password=?''', (USERNAME_VERIFICATION.get(),
-                   PASSWORD_VERIFICATION.get()))
-    row = cursor.fetchone()
+                                                        PASSWORD_VERIFICATION.get()))
+    row = CURSOR.fetchone()
     if row:
-        window.destroy()
+        WINDOW.destroy()
     else:
         error()
 
@@ -63,8 +63,8 @@ def error():
     """
     messagebox.showerror("Error", "Invalid username or password")
 
-ui = LogInView(window)
-ui.start()
+LOGIN_WINDOW = LogInView(WINDOW)
+LOGIN_WINDOW.start()
 
-window.mainloop()
-connect.close()
+WINDOW.mainloop()
+CONNECT.close()

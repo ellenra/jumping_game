@@ -1,12 +1,16 @@
 from tkinter import Label, Entry, Button, StringVar, constants, Toplevel, messagebox
-from login.login_settings import *
+from login.login_settings import WINDOW, FONT, CURSOR, CONNECT
+
+USERNAME = 1
+PASSWORD = 1
+EMAIL = 1
 
 def register():
     """Luo rekisteri-ikkunan ja hallinnassa sen toiminnasta.
     """
     global USERNAME, PASSWORD, EMAIL
 
-    register_screen = Toplevel(window)
+    register_screen = Toplevel(WINDOW)
     register_screen.title("Register")
     register_screen.geometry("300x200")
     register_screen.configure(bg='#B0E0E6')
@@ -38,37 +42,38 @@ def register():
     password_label.grid(padx=5, pady=5)
     password_entry.grid(row=3, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
 
-    button.grid(columnspan=2, sticky=(constants.E,constants.W), padx=5, pady=5)
-    
+    button.grid(columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+
 def test_errors():
+    """Funktio, joka varmistaa, että tiedot ovat sopivia
+    """
     usnam = USERNAME.get()
-    em = EMAIL.get()
+    email = EMAIL.get()
     paswrd = PASSWORD.get()
     while True:
         if len(usnam) < 2:
             register_error()
             return
-        if len(em) < 4:
+        if len(email) < 4:
             register_error()
             return
         if len(paswrd) < 2:
             register_error()
             return
-        else:
-            add_to_database()
-    
-    
+        add_to_database()
+
+
 def add_to_database():
     """Lisää käyttäjän tiedot tietokantaan.
     """
-    cursor.execute("INSERT INTO information VALUES (:username, :email, :password)", {
-            'username': USERNAME.get(),
-            'email': EMAIL.get(),
-            'password': PASSWORD.get()
-            })
-    connect.commit()
-    window.destroy()
-    
+    CURSOR.execute("INSERT INTO information VALUES (:username, :email, :password)", {
+        'username': USERNAME.get(),
+        'email': EMAIL.get(),
+        'password': PASSWORD.get()
+        })
+    CONNECT.commit()
+    WINDOW.destroy()
+
 def register_error():
     """Hoitaa ongelman, jos vääränlainen salasana, mail tai käyttäjätunnus.
     """

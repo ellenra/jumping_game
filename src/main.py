@@ -1,10 +1,25 @@
 import time
 import sys
+import random as rand
 import pygame
+from services.player import PLAYER, PLATFORMS, ALL_SPRITES, PINK, SCREEN_WIDTH
+from services.platforms import Platform
+from services.settings import SCREEN, LIGHTBLUE, CLOCK, SCREEN_HEIGHT
 from login.main_login import LogInView
-from main_functions import *
+from main_functions import platform_collision, newplatforms
 
 pygame.init()
+
+for i in range(rand.randint(4, 5)):
+    IS_TRUE = True
+    new_platform = Platform()
+
+    while IS_TRUE:
+        new_platform = Platform()
+        IS_TRUE = platform_collision(new_platform, PLATFORMS)
+
+    PLATFORMS.add(new_platform)
+    ALL_SPRITES.add(new_platform)
 
 while True:
     PLAYER.update()
@@ -34,13 +49,13 @@ while True:
             i.kill()
             time.sleep(0.5)
             SCREEN.fill(LIGHTBLUE)
-            font = pygame.font.SysFont("Adobe Myungjo Std Orta", 38)
+            font = pygame.font.SysFont("Adobe Myungjo Std Orta", 40)
             text_1 = font.render("Your Score : ", True, (PINK))
-            SCREEN.blit(text_1, (SCREEN_WIDTH / 3, SCREEN_HEIGHT / 2 - 70))
+            SCREEN.blit(text_1, (round(SCREEN_WIDTH / 3), round(SCREEN_HEIGHT - 500)))
             score = font.render(str(PLAYER.score - 1), True, (PINK))
-            SCREEN.blit(score,(SCREEN_WIDTH / 2 - 20, SCREEN_HEIGHT / 2 - 20))
-            text = font.render("Better luck next time!", True, (PINK))
-            SCREEN.blit(text, (SCREEN_WIDTH / 3.6, SCREEN_HEIGHT / 2 + 50))
+            SCREEN.blit(score, (round(SCREEN_WIDTH - 260), round(SCREEN_HEIGHT - 450)))
+            text = font.render("BETTER LUCK NEXT TIME!", True, (PINK))
+            SCREEN.blit(text, (round(SCREEN_WIDTH - 417), round(SCREEN_HEIGHT - 370)))
             pygame.display.update()
             time.sleep(3)
             pygame.quit()
@@ -49,13 +64,12 @@ while True:
     newplatforms()
     SCREEN.fill(LIGHTBLUE)
 
-    font = pygame.font.SysFont("Adobe Myungjo Std Orta", 38)
-    texty = font.render("Score :", True, PINK)
-    SCREEN.blit(texty, (SCREEN_WIDTH / 2 - 70, 10))
+    FONT_2 = pygame.font.SysFont("Adobe Myungjo Std Orta", 38)
+    SCORE_TEXT = FONT_2.render("Score :", True, PINK)
+    SCREEN.blit(SCORE_TEXT, (round(SCREEN_WIDTH / 2 - 70), 10))
 
-    font = pygame.font.SysFont("Adobe Myungjo Std Orta", 38)
-    texty = font.render(str(PLAYER.score - 1), True, PINK)
-    SCREEN.blit(texty, (SCREEN_WIDTH / 2 + 30, 10))
+    SCORE_POINTS = FONT_2.render(str(PLAYER.score - 1), True, PINK)
+    SCREEN.blit(SCORE_POINTS, (round(SCREEN_WIDTH / 2 + 30), 10))
 
     for entity in ALL_SPRITES:
         SCREEN.blit(entity.surf, entity.rect)
