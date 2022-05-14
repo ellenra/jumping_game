@@ -4,15 +4,18 @@ Peli on simppeli tasohyppelypeli johon kirjaudutaan omalla käyttäjätunnuksell
 
 ## Dokumentaatio
 
+[Käyttöohje](https://github.com/ellenra/jumping_game/blob/master/dokumentaatio/kayttoohje.md)
+
+[Arkkitehtuurikuvaus](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
+[Testausdokumentti](https://github.com/ellenra/jumping_game/blob/master/dokumentaatio/testaus.md)
+
 [Vaatimusmaarittely](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 [Tuntikirjanpito](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 [Changelog](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
 
-[Arkkitehtuurikuvaus](https://github.com/ellenra/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
-
-[Testausdokumentti](https://github.com/ellenra/jumping_game/blob/master/dokumentaatio/testaus.md)
 
 ## Asennus ja pelin aloitus
 1. Asenna riippuvuudet komennolla:
