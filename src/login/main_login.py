@@ -2,6 +2,9 @@ from tkinter import messagebox, StringVar, constants
 import tkinter as tk
 from login.register_screen import CURSOR, WINDOW, CONNECT, FONT, register
 
+USERNAME_VERIFICATION = 1
+PASSWORD_VERIFICATION = 1
+
 class LogInView:
     """Luokka, joka luo ja on vastuussa kirjautumisikkunanäkymästä.
     """

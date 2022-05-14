@@ -10,6 +10,7 @@ from main_functions import platform_collision, newplatforms
 
 pygame.init()
 
+
 for i in range(rand.randint(4, 5)):
     IS_TRUE = True
     new_platform = Platform()
