@@ -50,9 +50,9 @@ sequenceDiagram
 user-)register: click "Register"
 register-)test_errors: test_errors("test", "test@gmail.com", "abc123")
 test_errors-)add_to_database: Approved
-add_to_database-)Database add_to_database("test", "test@gmail.com", "abc123")
-Database-)All good
-Register-)main: Game starts...
+add_to_database-)Database: add_to_database("test", "test@gmail.com", "abc123")
+Database-)register: All good
+register-)main: Game starts...
 
 ```
 
