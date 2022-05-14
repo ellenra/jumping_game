@@ -12,10 +12,10 @@ näkyy käyttäjän viisi parasta pelitulosta.
 * Pelissä näkyy pisteet (tehty)
 * Kun käyttäjä häviää pelin, tulee näkyviin loppupistemäärä (tehty)
 
-### Miten peliä voisi tulevaisuudessa kurssin jälkeen kehittää:
-* pelaaja kerää asioita pelissä joista saa lisäpisteitä
-* pisteet tallentuu tietokantaan
-* voi nähdä omat parhaat pelitulokset
-* käyttäjä voi muokata omaa pelihahmoa
-* käyttäjä voi valita pelialueen värit
-* voi lisätä toisia pelaajia kavereiksi
+### Miten peliä voisi tulevaisuudessa kurssin jälkeen kehittää
+* Pelaaja kerää asioita pelissä joista saa lisäpisteitä
+* Pisteet tallentuu tietokantaan
+* Voi nähdä omat parhaat pelitulokset
+* Käyttäjä voi muokata omaa pelihahmoa
+* Käyttäjä voi valita pelialueen värit
+* Voi lisätä toisia pelaajia kavereiksi
