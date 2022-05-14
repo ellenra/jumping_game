@@ -7,7 +7,7 @@ näkyy käyttäjän viisi parasta pelitulosta.
 ### Perusversion toiminnallisuus
 #### Kirjautuminen
 * Käyttäjä voi luoda rekisteröityä peliin käyttäjätunnuksella, salasanalla ja emaililla (tehty)
- - Tulee ilmoitus, jos ei tarpeeksi pitkästi tietoa
+  - Tulee ilmoitus, jos huonot tiedot
 * Käyttäjä voi kirjautua käyttäjätunnuksella peliin  (tehty)
   - Jos tunnus tai salasana on väärin, tulee virheilmoitus (tehty)
 #### Pelaaminen
