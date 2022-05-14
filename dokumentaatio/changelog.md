@@ -17,3 +17,8 @@
 * Lisätty pistejärjestelmä
 * Lopussa näkyy yhteispistemäärä
 * Testejä tehty
+
+## Viikko 7
+* Testejä ja testitiedosto tehty
+* Koodin korjailua
+* Dokumentaation päivitystä
