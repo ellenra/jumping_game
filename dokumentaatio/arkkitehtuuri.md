@@ -43,3 +43,16 @@ verification--)login: user
 login-)main: Game starts...
 
 ```
+
+### Rekisteröityminen
+```mermaid
+sequenceDiagram
+user-)register: click "Register"
+register-)test_errors: test_errors("test", "test@gmail.com", "abc123")
+test_errors-)add_to_database: Approved, ("test", "test@gmail.com", "abc123")
+add_to_database-)Database add_to_database("test", "test@gmail.com", "abc123")
+Database-)All good
+Register-)main: Game starts...
+
+```
+
