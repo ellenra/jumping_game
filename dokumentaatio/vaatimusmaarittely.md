@@ -11,12 +11,11 @@ näkyy käyttäjän viisi parasta pelitulosta.
 * Käyttäjä pystyy pelata pelia (tehty)
 * Pelissä näkyy pisteet (tehty)
 * Kun käyttäjä häviää pelin, tulee näkyviin loppupistemäärä (tehty)
-* Käyttäjä voi kirjautua ulos pelistä
 
-### Jatkokehitysideoita
-* uusia hankalampia tasoja peliin
+### Miten peliä voisi tulevaisuudessa kurssin jälkeen kehittää:
 * pelaaja kerää asioita pelissä joista saa lisäpisteitä
-* voi nähdä koko pelin parhaat tulokset ja näiden pelaajien käyttäjätunnukset
+* pisteet tallentuu tietokantaan
+* voi nähdä omat parhaat pelitulokset
 * käyttäjä voi muokata omaa pelihahmoa
 * käyttäjä voi valita pelialueen värit
 * voi lisätä toisia pelaajia kavereiksi
