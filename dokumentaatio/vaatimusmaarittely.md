@@ -5,10 +5,12 @@ Sovellus on yksinkertainen tasohyppelypeli. Peliin rekisteröidytään käyttäj
 näkyy käyttäjän viisi parasta pelitulosta.
 
 ### Perusversion toiminnallisuus
-* Käyttäjä voi luoda käyttäjätunnuksen (tehty)
+#### Kirjautuminen
+* Käyttäjä voi luoda käyttäjätunnuksen (pitää olla tarpeeksi pitkä) (tehty)
 * Käyttäjä voi kirjautua käyttäjätunnuksella peliin  (tehty)
   - Jos tunnus tai salasana on väärin, tulee virheilmoitus (tehty)
-* Käyttäjä pystyy pelata pelia (tehty)
+#### Pelaaminen
+* Käyttäjä pystyy pelata pelia nuolinäppäimillä (tehty)
 * Pelissä näkyy pisteet (tehty)
 * Kun käyttäjä häviää pelin, tulee näkyviin loppupistemäärä (tehty)
 
